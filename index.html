@@ -332,48 +332,116 @@
       <section id="process" class="relative px-4 py-20 sm:px-6 lg:px-0 lg:py-24">
         <div class="mx-auto lg:container lg:px-12">
           <div class="max-w-3xl">
-            <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-emerald-200/80">
-              <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
-              Research -> Product Process
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-slate-200/80">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-sky-200"></span>
+              Workflow
             </div>
             <h2 class="mt-6 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[3.15rem]">
-              How the lab turns discovery into usable systems.
+              How a lab idea becomes a product we are willing to ship.
             </h2>
             <p class="mt-5 max-w-2xl text-base leading-7 text-white/68 sm:text-lg sm:leading-8">
-              Our process is designed to keep research ambitious without letting it drift into isolated experiments. Every capability is forced through a process of validation, system design, and real deployment pressure.
+              We move through a real workflow: idea framing, data collection, study, evaluation, product shaping, system build, and live deployment feedback. Each stage has outputs, gates, and reasons to go back.
             </p>
           </div>
 
-          <div class="mt-12 grid gap-4 lg:grid-cols-5">
-            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
-              <div class="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">01. Discovery</div>
-              <h3 class="mt-3 text-xl font-semibold text-white">Research the capability.</h3>
-              <p class="mt-3 text-sm leading-6 text-white/65">We begin with model behavior, new architectures, and experimental patterns that could become reusable intelligence primitives.</p>
-            </article>
+          <div class="mt-12">
+            <div class="relative overflow-hidden rounded-[2.2rem] border border-white/10 bg-[#090b10] p-5 shadow-glow shadow-black/30 sm:p-6 lg:p-7">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_12%_14%,rgba(56,189,248,0.08),transparent_20%),radial-gradient(circle_at_88%_18%,rgba(34,197,94,0.07),transparent_24%),radial-gradient(circle_at_60%_88%,rgba(167,139,250,0.06),transparent_18%)]"></div>
+              <div class="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+              <div class="relative">
+                <div class="grid gap-3 lg:grid-cols-7">
+                  <button type="button" data-workflow-step="0" class="workflow-step group rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-left transition duration-300 hover:bg-white/[0.05]">
+                    <div class="text-[11px] uppercase tracking-[0.22em] text-sky-200/70">01. Intake</div>
+                    <div class="mt-3 text-sm font-medium text-white">Idea framing</div>
+                  </button>
+                  <button type="button" data-workflow-step="1" class="workflow-step group rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-left transition duration-300 hover:bg-white/[0.05]">
+                    <div class="text-[11px] uppercase tracking-[0.22em] text-emerald-200/70">02. Grounding</div>
+                    <div class="mt-3 text-sm font-medium text-white">Data collection</div>
+                  </button>
+                  <button type="button" data-workflow-step="2" class="workflow-step group rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-left transition duration-300 hover:bg-white/[0.05]">
+                    <div class="text-[11px] uppercase tracking-[0.22em] text-white/55">03. Study</div>
+                    <div class="mt-3 text-sm font-medium text-white">Research loop</div>
+                  </button>
+                  <button type="button" data-workflow-step="3" class="workflow-step group rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-left transition duration-300 hover:bg-white/[0.05]">
+                    <div class="text-[11px] uppercase tracking-[0.22em] text-violet-200/65">04. Evaluation</div>
+                    <div class="mt-3 text-sm font-medium text-white">Measure and break</div>
+                  </button>
+                  <button type="button" data-workflow-step="4" class="workflow-step group rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-left transition duration-300 hover:bg-white/[0.05]">
+                    <div class="text-[11px] uppercase tracking-[0.22em] text-rose-200/65">05. Shaping</div>
+                    <div class="mt-3 text-sm font-medium text-white">Product design</div>
+                  </button>
+                  <button type="button" data-workflow-step="5" class="workflow-step group rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-left transition duration-300 hover:bg-white/[0.05]">
+                    <div class="text-[11px] uppercase tracking-[0.22em] text-sky-200/65">06. Build</div>
+                    <div class="mt-3 text-sm font-medium text-white">Systemization</div>
+                  </button>
+                  <button type="button" data-workflow-step="6" class="workflow-step group rounded-[1.2rem] border border-white/10 bg-white/[0.03] px-4 py-4 text-left transition duration-300 hover:bg-white/[0.05]">
+                    <div class="text-[11px] uppercase tracking-[0.22em] text-emerald-200/70">07. Release</div>
+                    <div class="mt-3 text-sm font-medium text-white">Deployment loop</div>
+                  </button>
+                </div>
 
-            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
-              <div class="text-[11px] uppercase tracking-[0.24em] text-emerald-200/70">02. Validation</div>
-              <h3 class="mt-3 text-xl font-semibold text-white">Stress-test the claim.</h3>
-              <p class="mt-3 text-sm leading-6 text-white/65">Capabilities must survive benchmarking, failure review, and grounded evaluation before we treat them as something the platform can trust.</p>
-            </article>
+                <div class="mt-5 grid gap-5 xl:grid-cols-[1.18fr_0.82fr]">
+                  <div class="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-[linear-gradient(160deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02)_42%,rgba(0,0,0,0.84))] p-6">
+                    <div id="workflowAccent" class="absolute inset-0 opacity-90 transition duration-500"></div>
+                    <div class="relative">
+                      <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                        <div>
+                          <div id="workflowStepLabel" class="text-[11px] uppercase tracking-[0.24em] text-sky-200/75">01. Intake</div>
+                          <h3 id="workflowTitle" class="mt-3 text-2xl font-semibold tracking-[-0.03em] text-white sm:text-[2rem]">Shape the idea into a question worth pursuing.</h3>
+                        </div>
+                        <div id="workflowGate" class="rounded-full border border-sky-300/15 bg-sky-300/10 px-3 py-1 text-[11px] uppercase tracking-[0.2em] text-sky-100/80">
+                          Gate: Problem worth solving
+                        </div>
+                      </div>
 
-            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
-              <div class="text-[11px] uppercase tracking-[0.24em] text-white/55">03. Systemization</div>
-              <h3 class="mt-3 text-xl font-semibold text-white">Turn it into infrastructure.</h3>
-              <p class="mt-3 text-sm leading-6 text-white/65">We translate validated behavior into shared layers like memory, retrieval, tool use, orchestration, and multimodal interfaces.</p>
-            </article>
+                      <p id="workflowSummary" class="mt-5 max-w-3xl text-base leading-7 text-white/68 sm:text-lg sm:leading-8">
+                        We begin by pressure-testing the initial idea. The lab asks whether the problem is meaningful, whether it creates a real advantage if solved, and whether it belongs in research, product, or both.
+                      </p>
 
-            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
-              <div class="text-[11px] uppercase tracking-[0.24em] text-violet-200/70">04. Deployment</div>
-              <h3 class="mt-3 text-xl font-semibold text-white">Push it into products.</h3>
-              <p class="mt-3 text-sm leading-6 text-white/65">The capability is applied inside real workflows where latency, trust, usability, and operational complexity expose what still needs work.</p>
-            </article>
+                      <div class="mt-6 grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+                        <div class="rounded-[1.4rem] border border-white/10 bg-black/20 p-4">
+                          <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">What Happens Here</div>
+                          <ul id="workflowActions" class="mt-4 space-y-3 text-sm leading-6 text-white/72">
+                            <li>Map the user or domain problem behind the idea.</li>
+                            <li>Write the first hypotheses and failure assumptions.</li>
+                            <li>Decide whether this should become a research track at all.</li>
+                          </ul>
+                        </div>
+                        <div class="rounded-[1.4rem] border border-white/10 bg-black/20 p-4">
+                          <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">Why This Stage Matters</div>
+                          <p id="workflowWhy" class="mt-4 text-sm leading-7 text-white/68">
+                            Without this filter, labs waste time chasing clever but irrelevant work. A strong intake stage keeps the rest of the pipeline attached to something that can become a real product.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
 
-            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
-              <div class="text-[11px] uppercase tracking-[0.24em] text-emerald-200/70">05. Feedback Process</div>
-              <h3 class="mt-3 text-xl font-semibold text-white">Feed reality back into research.</h3>
-              <p class="mt-3 text-sm leading-6 text-white/65">What breaks, scales, or surprises us in production informs the next round of research so the lab compounds instead of restarting.</p>
-            </article>
+                  <div class="grid gap-5">
+                    <div class="rounded-[1.8rem] border border-white/10 bg-white/[0.03] p-5">
+                      <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">Main Outputs</div>
+                      <div id="workflowOutputs" class="mt-4 flex flex-wrap gap-2">
+                        <span class="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-sm text-white/75">Problem brief</span>
+                        <span class="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-sm text-white/75">Initial hypotheses</span>
+                        <span class="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-sm text-white/75">Research fit check</span>
+                      </div>
+                    </div>
+
+                    <div class="rounded-[1.8rem] border border-white/10 bg-white/[0.03] p-5">
+                      <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">Readiness Signal</div>
+                      <div id="workflowSignal" class="mt-4 text-lg font-medium text-white">The team can state the problem clearly enough to know what evidence to gather next.</div>
+                    </div>
+
+                    <div class="rounded-[1.8rem] border border-white/10 bg-white/[0.03] p-5">
+                      <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">Loop Logic</div>
+                      <p class="mt-4 text-sm leading-7 text-white/64">
+                        This workflow is not a straight line. Failed evaluation can send us back to data collection, weak studies can reopen the research question, and product constraints can reshape the system before release.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -655,10 +723,10 @@
           <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-glow shadow-black/30">
               <div class="flex items-start gap-4">
-                <img src="https://i.pravatar.cc/160?img=56" alt="Portrait of Alice Johnson" class="h-24 w-24 shrink-0 rounded-full border-2 border-violet-300/35 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_28px_rgba(196,181,253,0.12)]" />
+                <img src="https://i.pravatar.cc/160?img=56" alt="Portrait of Talha Muammar" class="h-24 w-24 shrink-0 rounded-full border-2 border-violet-300/35 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_28px_rgba(196,181,253,0.12)]" />
                 <div class="min-w-0 pt-1">
                   <span class="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-white/45">Founder</span>
-                  <h3 class="mt-3 text-lg font-semibold text-white">Alice Johnson</h3>
+                  <h3 class="mt-3 text-lg font-semibold text-white">Talha Muammar</h3>
                   <p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-violet-200/70">Chief Scientist</p>
                 </div>
               </div>
@@ -1109,6 +1177,204 @@
       menuToggle?.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
+
+      const workflowData = [
+        {
+          step: '01. Intake',
+          title: 'Shape the idea into a question worth pursuing.',
+          gate: 'Gate: Problem worth solving',
+          summary:
+            'We begin by pressure-testing the initial idea. The lab asks whether the problem is meaningful, whether it creates a real advantage if solved, and whether it belongs in research, product, or both.',
+          why:
+            'Without this filter, labs waste time chasing clever but irrelevant work. A strong intake stage keeps the rest of the pipeline attached to something that can become a real product.',
+          actions: [
+            'Map the user or domain problem behind the idea.',
+            'Write the first hypotheses and failure assumptions.',
+            'Decide whether this should become a research track at all.',
+          ],
+          outputs: ['Problem brief', 'Initial hypotheses', 'Research fit check'],
+          signal:
+            'The team can state the problem clearly enough to know what evidence to gather next.',
+          accent:
+            'bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.16),transparent_34%),linear-gradient(135deg,rgba(56,189,248,0.06),rgba(255,255,255,0.01)_46%,rgba(0,0,0,0))]',
+          gateClass: 'border-sky-300/15 bg-sky-300/10 text-sky-100/80',
+        },
+        {
+          step: '02. Grounding',
+          title: 'Collect, curate, and structure the data the idea depends on.',
+          gate: 'Gate: Evidence can be assembled',
+          summary:
+            'Once the question is worth pursuing, we gather the data surface around it. That includes raw sources, domain references, edge cases, and the labeling or curation rules that turn messy inputs into usable material.',
+          why:
+            'Weak data gives us misleading research and brittle products. This stage makes sure the later study is grounded in the real structure of the domain rather than wishful abstractions.',
+          actions: [
+            'Collect source material, examples, and domain records.',
+            'Define curation rules, quality filters, and exclusions.',
+            'Build the first evaluation slices from actual data conditions.',
+          ],
+          outputs: ['Source corpus', 'Curation policy', 'Evaluation slices'],
+          signal:
+            'The team has a dataset or evidence base that represents the problem honestly, not conveniently.',
+          accent:
+            'bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.15),transparent_34%),linear-gradient(135deg,rgba(34,197,94,0.06),rgba(255,255,255,0.01)_46%,rgba(0,0,0,0))]',
+          gateClass: 'border-emerald-300/15 bg-emerald-300/10 text-emerald-100/80',
+        },
+        {
+          step: '03. Study',
+          title: 'Run the research loop until the capability is actually understood.',
+          gate: 'Gate: Findings are reproducible',
+          summary:
+            'Here the lab studies mechanisms, architectures, prompts, retrieval logic, and system behavior. The point is not just to get a positive result once, but to understand what reliably produces it and where it breaks.',
+          why:
+            'Research becomes valuable only when it explains behavior well enough to be repeated and transferred. This stage turns experimentation into understanding.',
+          actions: [
+            'Run experiments across multiple research paths.',
+            'Compare behavior under controlled and adversarial conditions.',
+            'Document what works, what fails, and why.',
+          ],
+          outputs: ['Study notes', 'Behavior findings', 'Candidate approach'],
+          signal:
+            'The capability can be reproduced with enough consistency to justify deeper investment.',
+          accent:
+            'bg-[radial-gradient(circle_at_top_left,rgba(148,163,184,0.16),transparent_34%),linear-gradient(135deg,rgba(148,163,184,0.06),rgba(255,255,255,0.01)_46%,rgba(0,0,0,0))]',
+          gateClass: 'border-white/10 bg-white/[0.05] text-white/70',
+        },
+        {
+          step: '04. Evaluation',
+          title: 'Measure the system hard enough that failure becomes visible.',
+          gate: 'Gate: Performance survives scrutiny',
+          summary:
+            'We evaluate quality, robustness, edge cases, latency, and failure behavior. This is where promising ideas are often stopped, revised, or sent back because they are not yet strong enough for downstream product use.',
+          why:
+            'A lab that cannot measure failure ends up shipping confidence instead of capability. Evaluation is where claims are forced to become evidence.',
+          actions: [
+            'Benchmark core performance and task quality.',
+            'Run red-team probes and structured failure reviews.',
+            'Define thresholds for moving forward or looping back.',
+          ],
+          outputs: ['Benchmarks', 'Failure reports', 'Go or loop decision'],
+          signal:
+            'The team knows not only the average result, but the risk profile of the system under pressure.',
+          accent:
+            'bg-[radial-gradient(circle_at_top_left,rgba(167,139,250,0.16),transparent_34%),linear-gradient(135deg,rgba(167,139,250,0.06),rgba(255,255,255,0.01)_46%,rgba(0,0,0,0))]',
+          gateClass: 'border-violet-300/15 bg-violet-300/10 text-violet-100/80',
+        },
+        {
+          step: '05. Shaping',
+          title: 'Translate the validated capability into a product behavior.',
+          gate: 'Gate: User value is clear',
+          summary:
+            'A strong research result still needs a product surface. In this stage we decide where the capability fits, what the user experience should be, what must remain visible to the user, and what trust boundaries the product must respect.',
+          why:
+            'Many strong technical systems fail because they never become usable. Product shaping connects capability to workflow, accountability, and clarity.',
+          actions: [
+            'Choose the product surface and target workflow.',
+            'Decide interaction design, trust signals, and constraints.',
+            'Write the operational spec for what the system should do.',
+          ],
+          outputs: ['Product brief', 'Workflow spec', 'Trust design'],
+          signal:
+            'The capability now has a concrete use case, interface logic, and reason to exist in a product.',
+          accent:
+            'bg-[radial-gradient(circle_at_top_left,rgba(244,114,182,0.16),transparent_34%),linear-gradient(135deg,rgba(244,114,182,0.06),rgba(255,255,255,0.01)_46%,rgba(0,0,0,0))]',
+          gateClass: 'border-rose-300/15 bg-rose-300/10 text-rose-100/80',
+        },
+        {
+          step: '06. Build',
+          title: 'Systemize the capability so it can run reliably at product level.',
+          gate: 'Gate: System is operational',
+          summary:
+            'This is where the lab turns validated behavior into actual product infrastructure: retrieval layers, memory, verification, orchestration, monitoring, and the interfaces needed to support real use.',
+          why:
+            'A research insight is not yet a deployable system. Build is where the capability becomes stable, maintainable, and ready to survive outside the lab notebook.',
+          actions: [
+            'Implement the capability in production architecture.',
+            'Add observability, routing, and safety checks.',
+            'Test the full stack under realistic product load.',
+          ],
+          outputs: ['Operational stack', 'Monitoring hooks', 'Release candidate'],
+          signal:
+            'The system can now be run, observed, and maintained as a product component rather than an experiment.',
+          accent:
+            'bg-[radial-gradient(circle_at_top_left,rgba(96,165,250,0.15),transparent_34%),linear-gradient(135deg,rgba(96,165,250,0.06),rgba(255,255,255,0.01)_46%,rgba(0,0,0,0))]',
+          gateClass: 'border-sky-300/15 bg-sky-300/10 text-sky-100/80',
+        },
+        {
+          step: '07. Release',
+          title: 'Deploy, observe, and feed the product back into the lab.',
+          gate: 'Gate: Learn from reality',
+          summary:
+            'Shipping is not the end. Once the system is live, we observe user behavior, operational failures, domain drift, and trust signals. Those findings reopen research questions and start the next cycle.',
+          why:
+            'Reality teaches what internal testing cannot. The release stage makes the lab compound over time instead of rebuilding from scratch every cycle.',
+          actions: [
+            'Launch with monitoring and decision logs in place.',
+            'Review failures, drift, and user interaction patterns.',
+            'Feed new findings back into data, evaluation, and study.',
+          ],
+          outputs: ['Launch report', 'Operational learnings', 'Next-cycle agenda'],
+          signal:
+            'The product is generating real evidence that improves the next generation of research and system design.',
+          accent:
+            'bg-[radial-gradient(circle_at_top_left,rgba(34,197,94,0.14),transparent_34%),radial-gradient(circle_at_78%_26%,rgba(167,139,250,0.12),transparent_30%),linear-gradient(135deg,rgba(34,197,94,0.05),rgba(255,255,255,0.01)_46%,rgba(0,0,0,0))]',
+          gateClass: 'border-emerald-300/15 bg-emerald-300/10 text-emerald-100/80',
+        },
+      ];
+
+      const workflowButtons = Array.from(document.querySelectorAll('.workflow-step'));
+      const workflowStepLabel = document.getElementById('workflowStepLabel');
+      const workflowTitle = document.getElementById('workflowTitle');
+      const workflowGate = document.getElementById('workflowGate');
+      const workflowSummary = document.getElementById('workflowSummary');
+      const workflowActions = document.getElementById('workflowActions');
+      const workflowWhy = document.getElementById('workflowWhy');
+      const workflowOutputs = document.getElementById('workflowOutputs');
+      const workflowSignal = document.getElementById('workflowSignal');
+      const workflowAccent = document.getElementById('workflowAccent');
+
+      function renderWorkflowStep(index) {
+        const step = workflowData[index];
+        if (!step || !workflowStepLabel) return;
+
+        workflowButtons.forEach((button, buttonIndex) => {
+          if (buttonIndex === index) {
+            button.classList.add('border-white/20', 'bg-white/[0.07]', 'shadow-glow');
+            button.classList.remove('border-white/10', 'bg-white/[0.03]');
+          } else {
+            button.classList.remove('border-white/20', 'bg-white/[0.07]', 'shadow-glow');
+            button.classList.add('border-white/10', 'bg-white/[0.03]');
+          }
+        });
+
+        workflowStepLabel.textContent = step.step;
+        workflowTitle.textContent = step.title;
+        workflowGate.textContent = step.gate;
+        workflowGate.className = `rounded-full border px-3 py-1 text-[11px] uppercase tracking-[0.2em] ${step.gateClass}`;
+        workflowSummary.textContent = step.summary;
+        workflowWhy.textContent = step.why;
+        workflowSignal.textContent = step.signal;
+        workflowAccent.className = `absolute inset-0 opacity-90 transition duration-500 ${step.accent}`;
+
+        workflowActions.innerHTML = step.actions
+          .map((item) => `<li>${item}</li>`)
+          .join('');
+
+        workflowOutputs.innerHTML = step.outputs
+          .map(
+            (item) =>
+              `<span class="rounded-full border border-white/10 bg-black/20 px-3 py-1.5 text-sm text-white/75">${item}</span>`
+          )
+          .join('');
+      }
+
+      workflowButtons.forEach((button, index) => {
+        button.addEventListener('click', () => renderWorkflowStep(index));
+        button.addEventListener('mouseenter', () => {
+          if (window.innerWidth >= 1024) renderWorkflowStep(index);
+        });
+      });
+
+      renderWorkflowStep(0);
 
       const canvas = document.getElementById('networkCanvas');
       const ctx = canvas.getContext('2d');
