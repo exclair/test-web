@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Obsidian Labs — Navbar + Hero</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            colors: {
+              obsidian: {
+                950: "#040506",
+                900: "#090b0d",
+                850: "#0c1013",
+                800: "#12181d",
+              },
+            },
+            boxShadow: {
+              glow: "0 0 0 1px rgba(255,255,255,0.04), 0 24px 80px rgba(15, 23, 42, 0.45)",
+              cyan: "0 0 40px rgba(34, 211, 238, 0.12)",
+              emerald: "0 0 40px rgba(16, 185, 129, 0.12)",
+            },
+            backgroundImage: {
+              grid:
+                "linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+            },
+            animation: {
+              floaty: "floaty 7s ease-in-out infinite",
+              pulseSoft: "pulseSoft 6s ease-in-out infinite",
+              drift: "drift 16s linear infinite",
+              spinSlow: "spinSlow 20s linear infinite",
+              scanline: "scanline 7s ease-in-out infinite",
+            },
+            keyframes: {
+              floaty: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+              pulseSoft: {
+                "0%, 100%": { opacity: 0.45, transform: "scale(1)" },
+                "50%": { opacity: 0.8, transform: "scale(1.08)" },
+              },
+              drift: {
+                "0%": { transform: "translate3d(0,0,0)" },
+                "50%": { transform: "translate3d(22px,-18px,0)" },
+                "100%": { transform: "translate3d(0,0,0)" },
+              },
+              spinSlow: {
+                "0%": { transform: "rotate(0deg)" },
+                "100%": { transform: "rotate(360deg)" },
+              },
+              scanline: {
+                "0%, 100%": { transform: "translateY(-8%)", opacity: "0.2" },
+                "50%": { transform: "translateY(108%)", opacity: "0.55" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * { -webkit-tap-highlight-color: transparent; }
+      body {
+        background:
+          radial-gradient(circle at top left, rgba(16, 185, 129, 0.08), transparent 26%),
+          radial-gradient(circle at 85% 20%, rgba(34, 211, 238, 0.10), transparent 28%),
+          radial-gradient(circle at 50% 100%, rgba(255,255,255,0.03), transparent 35%),
+          #040506;
+      }
+      .glass {
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+      }
+      .text-balance { text-wrap: balance; }
+      .hero-mask {
+        mask-image: radial-gradient(circle at center, black 64%, transparent 100%);
+        -webkit-mask-image: radial-gradient(circle at center, black 64%, transparent 100%);
+      }
+      .panel-mesh {
+        background-image:
+          linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+        background-size: 28px 28px;
+      }
+    </style>
+  </head>
+  <body id="top" class="font-sans text-white antialiased selection:bg-cyan-400/20 selection:text-cyan-100">
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute inset-0 bg-grid bg-[size:72px_72px] opacity-[0.045]"></div>
+      <div class="absolute left-[8%] top-24 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl animate-pulseSoft"></div>
+      <div class="absolute right-[10%] top-40 h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl animate-drift"></div>
+      <div class="absolute bottom-[-8rem] left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-white/[0.03] blur-3xl"></div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-0">
+      <div class="mx-auto lg:container lg:px-12">
+        <nav class="glass flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-3 shadow-glow shadow-black/30 sm:px-6">
+          <a href="#top" class="group flex items-center gap-3">
+            <div class="relative flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.05] shadow-cyan">
+              <div class="absolute inset-0 rounded-xl bg-gradient-to-br from-cyan-400/20 via-transparent to-emerald-400/15"></div>
+              <div class="h-3.5 w-3.5 rotate-45 rounded-[4px] border border-cyan-300/50 bg-gradient-to-br from-cyan-300/60 to-emerald-300/20"></div>
+            </div>
+            <div>
+              <div class="text-[0.95rem] font-semibold tracking-[0.18em] text-white/95 uppercase">ObsidianLabs</div>
+            </div>
+          </a>
+
+          <div class="hidden items-center gap-7 lg:flex">
+            <a href="#philosophy" class="text-sm text-white/65 transition hover:text-white">Philosophy</a>
+            <a href="#process" class="text-sm text-white/65 transition hover:text-white">Process</a>
+            <a href="#projects" class="text-sm text-white/65 transition hover:text-white">Projects</a>
+            <a href="#research" class="text-sm text-white/65 transition hover:text-white">Research</a>
+            <a href="#team" class="text-sm text-white/65 transition hover:text-white">Team</a>
+            <a href="#news" class="text-sm text-white/65 transition hover:text-white">News</a>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <a href="#contact" class="hidden rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm text-white/80 transition hover:border-white/20 hover:bg-white/[0.07] sm:inline-flex">Apply</a>
+            <button id="menuToggle" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/80 lg:hidden" aria-label="Open menu">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
+        </nav>
+
+        <div id="mobileMenu" class="glass mt-3 hidden rounded-2xl border border-white/10 bg-white/[0.04] p-3 shadow-glow lg:hidden">
+          <div class="grid gap-1">
+            <a href="#philosophy" class="rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/[0.05] hover:text-white">Philosophy</a>
+            <a href="#process" class="rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/[0.05] hover:text-white">Process</a>
+            <a href="#projects" class="rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/[0.05] hover:text-white">Projects</a>
+            <a href="#research" class="rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/[0.05] hover:text-white">Research</a>
+            <a href="#team" class="rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/[0.05] hover:text-white">Team</a>
+            <a href="#news" class="rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/[0.05] hover:text-white">News</a>
+            <a href="#contact" class="rounded-xl px-3 py-2 text-sm text-white/75 transition hover:bg-white/[0.05] hover:text-white">Apply</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section id="hero" class="relative overflow-hidden px-4 pb-20 pt-32 sm:px-6 sm:pt-36 lg:px-0 lg:pb-28 lg:pt-40">
+        <div class="mx-auto grid items-center gap-14 lg:container lg:grid-cols-2 lg:gap-12 lg:px-12">
+          <!-- Left hero content -->
+          <div class="relative z-10 lg:pr-4">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-cyan-200/80 shadow-cyan">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-cyan-300"></span>
+              AI / ML MODEL LAB
+            </div>
+
+            <h1 class="mt-7 max-w-3xl text-balance text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-5xl md:text-6xl lg:text-[5.35rem]">
+              Intelligence, forged through research.
+            </h1>
+
+            <p class="mt-6 max-w-2xl text-balance text-base leading-7 text-white/68 sm:text-lg sm:leading-8">
+              Obsidian Labs builds reusable intelligence systems for professional domains. We develop the underlying primitives—reasoning, retrieval, tool use, memory, verification, and multilingual multimodal adaptation—then shape them into deployable products with architectural discipline.
+            </p>
+
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a href="#" class="group inline-flex items-center justify-center rounded-full border border-cyan-300/20 bg-gradient-to-r from-cyan-400/15 to-emerald-400/10 px-5 py-3 text-sm font-medium text-white shadow-cyan transition duration-300 hover:scale-[1.02] hover:border-cyan-300/35 hover:from-cyan-400/20 hover:to-emerald-400/16">
+                Explore Platform
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M13.5 4.5l6 6m0 0l-6 6m6-6h-15" />
+                </svg>
+              </a>
+              <a href="#" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.045] px-5 py-3 text-sm font-medium text-white/88 transition duration-300 hover:scale-[1.02] hover:border-white/20 hover:bg-white/[0.07]">
+                Request Access
+              </a>
+            </div>
+
+            <div class="mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.055]">
+                <div class="text-xs uppercase tracking-[0.24em] text-white/40">Research</div>
+                <div class="mt-2 text-sm font-medium text-white/88">Research → Product</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.055]">
+                <div class="text-xs uppercase tracking-[0.24em] text-white/40">Architecture</div>
+                <div class="mt-2 text-sm font-medium text-white/88">Shared Core IP</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-4 transition duration-300 hover:-translate-y-0.5 hover:bg-white/[0.055]">
+                <div class="text-xs uppercase tracking-[0.24em] text-white/40">Models</div>
+                <div class="mt-2 text-sm font-medium text-white/88">Multilingual + Multimodal</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right hero visual panel -->
+          <div class="relative lg:pl-4">
+            <div class="absolute -left-8 top-16 h-40 w-40 rounded-full bg-cyan-400/8 blur-3xl"></div>
+            <div class="absolute right-0 top-8 h-36 w-36 rounded-full bg-emerald-400/8 blur-3xl"></div>
+
+            <div class="relative overflow-hidden rounded-[1.9rem] border border-white/8 bg-black p-5 shadow-[0_24px_90px_rgba(0,0,0,0.65)] sm:p-6">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,211,238,0.08),transparent_30%),radial-gradient(circle_at_80%_22%,rgba(16,185,129,0.08),transparent_22%)]"></div>
+              <div class="panel-mesh absolute inset-0 opacity-[0.05]"></div>
+
+              <div class="relative">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <div class="text-[11px] uppercase tracking-[0.3em] text-white/35">Lab Control Surface</div>
+                    <h3 class="mt-3 text-2xl font-semibold tracking-[-0.04em] text-white sm:text-[1.9rem]">Deployment pipeline for trustworthy intelligence systems.</h3>
+                  </div>
+                  <div class="rounded-full border border-emerald-400/15 bg-emerald-400/10 px-3 py-1 text-[11px] uppercase tracking-[0.24em] text-emerald-200/80">
+                    Live
+                  </div>
+                </div>
+
+                <div class="mt-6 grid gap-4">
+                  <div class="rounded-[1.5rem] border border-white/10 bg-white/[0.02] p-4">
+                    <div class="mb-3 flex items-center justify-between">
+                      <div>
+                        <div class="text-[11px] uppercase tracking-[0.22em] text-white/35">Core Stack</div>
+                        <div class="mt-1 text-sm text-white/72">Reasoning, retrieval, tools, memory, and verification running in one process.</div>
+                      </div>
+                      <div class="text-right">
+                        <div class="text-[11px] uppercase tracking-[0.22em] text-white/30">Confidence</div>
+                        <div class="mt-1 text-lg font-semibold text-cyan-100">98.4%</div>
+                      </div>
+                    </div>
+
+                    <div class="hero-mask relative overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#030405]">
+                      <canvas id="networkCanvas" class="block h-[280px] w-full sm:h-[320px]"></canvas>
+                      <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.03),transparent_20%,transparent_80%,rgba(255,255,255,0.02)),radial-gradient(circle_at_50%_45%,rgba(34,211,238,0.12),transparent_24%)]"></div>
+                      <div class="pointer-events-none absolute left-0 right-0 top-0 h-20 bg-gradient-to-b from-cyan-300/0 via-cyan-300/8 to-cyan-300/0 animate-scanline"></div>
+
+                      <div class="absolute left-4 top-4 rounded-xl border border-white/10 bg-black/55 px-3 py-2 text-xs text-white/72 backdrop-blur-md">
+                        <div class="uppercase tracking-[0.22em] text-white/30">Active Path</div>
+                        <div class="mt-1 font-medium text-cyan-100/90">Input -> Reason -> Verify -> Deliver</div>
+                      </div>
+
+                      <div class="absolute bottom-4 right-4 rounded-xl border border-white/10 bg-black/55 px-3 py-2 text-xs text-white/72 backdrop-blur-md">
+                        <div class="uppercase tracking-[0.22em] text-white/30">Latency</div>
+                        <div class="mt-1 font-medium text-emerald-200/85">21ms median</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="grid gap-3 sm:grid-cols-3">
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-3">
+                      <div class="text-[11px] uppercase tracking-[0.22em] text-white/35">Models</div>
+                      <div class="mt-2 text-2xl font-semibold text-white">12</div>
+                      <div class="mt-1 text-sm text-white/60">specialized systems in active rotation</div>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-3">
+                      <div class="text-[11px] uppercase tracking-[0.22em] text-white/35">Retrieval</div>
+                      <div class="mt-2 text-2xl font-semibold text-white">4.2M</div>
+                      <div class="mt-1 text-sm text-white/60">indexed knowledge units available</div>
+                    </div>
+                    <div class="rounded-2xl border border-white/10 bg-white/[0.02] p-3">
+                      <div class="text-[11px] uppercase tracking-[0.22em] text-white/35">Verification</div>
+                      <div class="mt-2 text-2xl font-semibold text-white">3-layer</div>
+                      <div class="mt-1 text-sm text-white/60">checks before external output</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Philosophy section -->
+      <section id="philosophy" class="relative px-4 py-20 sm:px-6 lg:px-0 lg:py-24">
+        <div class="mx-auto lg:container lg:px-12">
+          <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-14">
+            <div>
+              <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-cyan-200/80">
+                <span class="inline-block h-1.5 w-1.5 rounded-full bg-cyan-300"></span>
+                Our Philosophy
+              </div>
+              <h2 class="mt-6 max-w-xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[3.1rem]">
+                Product is the priority.
+                <span class="block text-white/55">Research makes it stronger.</span>
+              </h2>
+              <p class="mt-5 max-w-xl text-base leading-7 text-white/68 sm:text-lg sm:leading-8">
+                At Obsidian Labs, we begin with what can become useful, durable, and deployable. Research is essential to that process, but product remains the priority because real systems are where intelligence is tested, refined, and proven.
+              </p>
+            </div>
+
+            <div class="grid gap-4 md:grid-cols-2">
+              <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-cyan-200/70">01. Curiosity, Then Utility</div>
+                <h3 class="mt-3 text-xl font-semibold text-white">We investigate what matters.</h3>
+                <p class="mt-3 text-sm leading-6 text-white/65">
+                  We still begin with questions about how intelligence can reason, adapt, and collaborate, but we study them with an eye toward what can eventually become useful in real systems.
+                </p>
+              </article>
+
+              <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-emerald-200/70">02. Products Are The Proof</div>
+                <h3 class="mt-3 text-xl font-semibold text-white">Ideas must survive deployment.</h3>
+                <p class="mt-3 text-sm leading-6 text-white/65">
+                  We do not treat products as side effects of research. A capability only becomes meaningful when it can be engineered, deployed, and trusted in practice.
+                </p>
+              </article>
+
+              <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-white/55">03. Research Must Withstand Scrutiny</div>
+                <h3 class="mt-3 text-xl font-semibold text-white">Only strong ideas should move forward.</h3>
+                <p class="mt-3 text-sm leading-6 text-white/65">
+                  We value rigorous, reproducible work and deliberate review. If an idea cannot survive scrutiny, it does not belong inside systems we expect others to depend on.
+                </p>
+              </article>
+
+              <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-cyan-200/70">04. Deployment Feeds The Process</div>
+                <h3 class="mt-3 text-xl font-semibold text-white">Shipping teaches us what research cannot.</h3>
+                <p class="mt-3 text-sm leading-6 text-white/65">
+                  Every system we deploy creates new evidence. Product is not the end of the process for us, it feeds back into research and sharpens what we build next.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research to product process -->
+      <section id="process" class="relative px-4 py-20 sm:px-6 lg:px-0 lg:py-24">
+        <div class="mx-auto lg:container lg:px-12">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-emerald-200/80">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
+              Research -> Product Process
+            </div>
+            <h2 class="mt-6 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[3.15rem]">
+              How the lab turns discovery into usable systems.
+            </h2>
+            <p class="mt-5 max-w-2xl text-base leading-7 text-white/68 sm:text-lg sm:leading-8">
+              Our process is designed to keep research ambitious without letting it drift into isolated experiments. Every capability is forced through a process of validation, system design, and real deployment pressure.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-4 lg:grid-cols-5">
+            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
+              <div class="text-[11px] uppercase tracking-[0.24em] text-cyan-200/70">01. Discovery</div>
+              <h3 class="mt-3 text-xl font-semibold text-white">Research the capability.</h3>
+              <p class="mt-3 text-sm leading-6 text-white/65">We begin with model behavior, new architectures, and experimental patterns that could become reusable intelligence primitives.</p>
+            </article>
+
+            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
+              <div class="text-[11px] uppercase tracking-[0.24em] text-emerald-200/70">02. Validation</div>
+              <h3 class="mt-3 text-xl font-semibold text-white">Stress-test the claim.</h3>
+              <p class="mt-3 text-sm leading-6 text-white/65">Capabilities must survive benchmarking, failure review, and grounded evaluation before we treat them as something the platform can trust.</p>
+            </article>
+
+            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
+              <div class="text-[11px] uppercase tracking-[0.24em] text-white/55">03. Systemization</div>
+              <h3 class="mt-3 text-xl font-semibold text-white">Turn it into infrastructure.</h3>
+              <p class="mt-3 text-sm leading-6 text-white/65">We translate validated behavior into shared layers like memory, retrieval, tool use, orchestration, and multimodal interfaces.</p>
+            </article>
+
+            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
+              <div class="text-[11px] uppercase tracking-[0.24em] text-violet-200/70">04. Deployment</div>
+              <h3 class="mt-3 text-xl font-semibold text-white">Push it into products.</h3>
+              <p class="mt-3 text-sm leading-6 text-white/65">The capability is applied inside real workflows where latency, trust, usability, and operational complexity expose what still needs work.</p>
+            </article>
+
+            <article class="glass rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-5 shadow-glow shadow-black/30">
+              <div class="text-[11px] uppercase tracking-[0.24em] text-emerald-200/70">05. Feedback Process</div>
+              <h3 class="mt-3 text-xl font-semibold text-white">Feed reality back into research.</h3>
+              <p class="mt-3 text-sm leading-6 text-white/65">What breaks, scales, or surprises us in production informs the next round of research so the lab compounds instead of restarting.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects section -->
+      <section id="projects" class="relative px-4 py-20 sm:px-6 lg:px-0 lg:py-24">
+        <div class="mx-auto lg:container lg:px-12">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-emerald-200/80">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
+              Projects
+            </div>
+            <h2 class="mt-6 max-w-xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[3.15rem]">
+              Projects that turn lab capability into working systems.
+            </h2>
+            <p class="mt-5 max-w-2xl text-base leading-7 text-white/68 sm:text-lg sm:leading-8">
+              These projects are not placeholders. Each one reflects a concrete surface where the lab’s reasoning, memory, retrieval, verification, and multimodal work becomes something usable, testable, and improvable.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-5 md:grid-cols-2">
+            <article class="group relative overflow-hidden rounded-[1.8rem] bg-[#0b0b0f] p-6 shadow-glow shadow-black/30 transition duration-300">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.18),transparent_48%)] opacity-70 transition duration-300 group-hover:opacity-100"></div>
+              <div class="absolute inset-0 bg-[linear-gradient(160deg,rgba(34,211,238,0.09),rgba(255,255,255,0.02)_38%,rgba(0,0,0,0.82))] opacity-75 transition duration-300 group-hover:opacity-100"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-cyan-300/40 to-transparent"></div>
+              <div class="relative">
+                <div class="flex items-center justify-between gap-4">
+                  <div class="text-[11px] uppercase tracking-[0.22em] text-cyan-200/75">Project Atlas</div>
+                  <span class="rounded-full border border-cyan-300/15 bg-cyan-300/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-cyan-100/80">Reasoning System</span>
+                </div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Obsidian Reasoner</h3>
+                <div class="mt-2 text-sm font-medium text-cyan-200/85">Reasoning &amp; Decision Intelligence</div>
+                <p class="mt-4 text-sm leading-7 text-white/68">
+                  A modular reasoning engine built for multi-step decision making under uncertainty, combining structured planning, grounded evidence, and controllable inference in one system.
+                </p>
+                <ul class="mt-5 space-y-2 text-sm leading-6 text-white/62">
+                  <li>&bull; Multi-step planning and decomposition</li>
+                  <li>&bull; Evidence-linked responses with review checkpoints</li>
+                  <li>&bull; Hybrid symbolic and neural reasoning paths</li>
+                </ul>
+                <div class="mt-6 flex flex-col gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-start sm:justify-between">
+                  <p class="max-w-[15rem] text-sm leading-6 text-white/45">Research lineage: reasoning, planning, and controllable inference.</p>
+                  <div class="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:gap-3">
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-cyan-300/20 bg-cyan-300/10 px-3 py-2 text-xs text-white transition hover:bg-cyan-300/18 sm:px-4 sm:text-sm">GitHub</a>
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-white/88 transition hover:bg-cyan-300/10 sm:px-4 sm:text-sm">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[1.8rem] bg-[#0b0b0f] p-6 shadow-glow shadow-black/30 transition duration-300">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.18),transparent_48%)] opacity-70 transition duration-300 group-hover:opacity-100"></div>
+              <div class="absolute inset-0 bg-[linear-gradient(160deg,rgba(16,185,129,0.09),rgba(255,255,255,0.02)_38%,rgba(0,0,0,0.82))] opacity-75 transition duration-300 group-hover:opacity-100"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/40 to-transparent"></div>
+              <div class="relative">
+                <div class="flex items-center justify-between gap-4">
+                  <div class="text-[11px] uppercase tracking-[0.22em] text-emerald-200/75">Project Relay</div>
+                  <span class="rounded-full border border-emerald-300/15 bg-emerald-300/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-emerald-100/80">Memory Infrastructure</span>
+                </div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Context Memory Layer</h3>
+                <div class="mt-2 text-sm font-medium text-emerald-200/85">Persistent Memory &amp; Retrieval Systems</div>
+                <p class="mt-4 text-sm leading-7 text-white/68">
+                  A long-horizon memory layer that preserves session state, retrieval continuity, and context handoff so agents can operate across time instead of resetting on every task.
+                </p>
+                <ul class="mt-5 space-y-2 text-sm leading-6 text-white/62">
+                  <li>&bull; Persistent session and user memory</li>
+                  <li>&bull; Retrieval-aware context compression</li>
+                  <li>&bull; Cross-task continuity for agent workflows</li>
+                </ul>
+                <div class="mt-6 flex flex-col gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-start sm:justify-between">
+                  <p class="max-w-[15rem] text-sm leading-6 text-white/45">Research lineage: memory systems, retrieval design, and context continuity.</p>
+                  <div class="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:gap-3">
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-2 text-xs text-white transition hover:bg-emerald-300/18 sm:px-4 sm:text-sm">GitHub</a>
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-white/88 transition hover:bg-emerald-300/10 sm:px-4 sm:text-sm">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[1.8rem] bg-[#0b0b0f] p-6 shadow-glow shadow-black/30 transition duration-300">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.10),transparent_48%)] opacity-65 transition duration-300 group-hover:opacity-100"></div>
+              <div class="absolute inset-0 bg-[linear-gradient(160deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02)_38%,rgba(0,0,0,0.84))] opacity-75 transition duration-300 group-hover:opacity-100"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"></div>
+              <div class="relative">
+                <div class="flex items-center justify-between gap-4">
+                  <div class="text-[11px] uppercase tracking-[0.22em] text-white/58">Project Sentry</div>
+                  <span class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-white/55">Verification Layer</span>
+                </div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Verification Stack</h3>
+                <div class="mt-2 text-sm font-medium text-white/72">Grounding, Safety &amp; Review Systems</div>
+                <p class="mt-4 text-sm leading-7 text-white/68">
+                  A verification and review system that checks claims before output, strengthens grounded responses, and adds failure analysis where trust requirements are non-negotiable.
+                </p>
+                <ul class="mt-5 space-y-2 text-sm leading-6 text-white/62">
+                  <li>&bull; Evidence checks before response delivery</li>
+                  <li>&bull; Failure tracing and review escalation</li>
+                  <li>&bull; Quality gates for high-trust workflows</li>
+                </ul>
+                <div class="mt-6 flex flex-col gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-start sm:justify-between">
+                  <p class="max-w-[15rem] text-sm leading-6 text-white/45">Research lineage: grounded generation, evaluation, and safety-critical validation.</p>
+                  <div class="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:gap-3">
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-black/20 px-3 py-2 text-xs text-white transition hover:bg-white/10 sm:px-4 sm:text-sm">GitHub</a>
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-white/88 transition hover:bg-white/10 sm:px-4 sm:text-sm">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[1.8rem] bg-[#0b0b0f] p-6 shadow-glow shadow-black/30 transition duration-300">
+              <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(139,92,246,0.18),transparent_48%)] opacity-70 transition duration-300 group-hover:opacity-100"></div>
+              <div class="absolute inset-0 bg-[linear-gradient(160deg,rgba(139,92,246,0.09),rgba(255,255,255,0.02)_38%,rgba(0,0,0,0.82))] opacity-75 transition duration-300 group-hover:opacity-100"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-violet-300/40 to-transparent"></div>
+              <div class="relative">
+                <div class="flex items-center justify-between gap-4">
+                  <div class="text-[11px] uppercase tracking-[0.22em] text-violet-200/75">Project Prism</div>
+                  <span class="rounded-full border border-violet-300/15 bg-violet-300/10 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-violet-100/80">Multimodal Platform</span>
+                </div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Multimodal Core</h3>
+                <div class="mt-2 text-sm font-medium text-violet-200/85">Vision, Documents &amp; Mixed-Input Intelligence</div>
+                <p class="mt-4 text-sm leading-7 text-white/68">
+                  A multimodal system designed to understand screens, documents, images, and structured input together so real-world workflows are not limited to text-only interaction.
+                </p>
+                <ul class="mt-5 space-y-2 text-sm leading-6 text-white/62">
+                  <li>&bull; Cross-modal understanding across image and text</li>
+                  <li>&bull; Document parsing with interface awareness</li>
+                  <li>&bull; Mixed-input reasoning for operational tools</li>
+                </ul>
+                <div class="mt-6 flex flex-col gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-start sm:justify-between">
+                  <p class="max-w-[15rem] text-sm leading-6 text-white/45">Research lineage: multimodal learning, representation alignment, and vision-language systems.</p>
+                  <div class="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:gap-3">
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-violet-300/20 bg-violet-300/10 px-3 py-2 text-xs text-white transition hover:bg-violet-300/18 sm:px-4 sm:text-sm">GitHub</a>
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-white/88 transition hover:bg-violet-300/10 sm:px-4 sm:text-sm">View Details</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research section -->
+      <section id="research" class="relative px-4 py-20 sm:px-6 lg:px-0 lg:py-24">
+        <div class="mx-auto lg:container lg:px-12">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-cyan-200/80">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-cyan-300"></span>
+              Research
+            </div>
+            <h2 class="mt-6 max-w-2xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[3.15rem]">
+              The research behind the systems we ship.
+            </h2>
+            <p class="mt-5 max-w-2xl text-base leading-7 text-white/68 sm:text-lg sm:leading-8">
+              Our lab keeps a live research agenda across core intelligence systems. Some tracks are still under active investigation, some have already shaped deployed products, and some define the long-range domains we continue to invest in.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            <article class="group relative overflow-hidden rounded-[2rem] bg-[#0b0c10] p-6 shadow-glow shadow-black/30">
+              <div class="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01)_42%,rgba(0,0,0,0.78))]"></div>
+              <div class="absolute inset-0 opacity-70 transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_left,rgba(148,163,184,0.16),transparent_42%)]"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"></div>
+              <div class="relative">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-white/55">01. Research Domain</div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Reasoning and planning systems</h3>
+                <p class="mt-4 text-sm leading-7 text-white/64">
+                  We study how intelligence can break down problems, maintain structured thought across multiple steps, and make decisions that remain stable under ambiguity.
+                </p>
+                <div class="mt-6 grid gap-3 text-sm text-white/54">
+                  <div>Focus: decomposition, control, search, long-form decision flow</div>
+                  <div>Why it matters: this domain shapes the core systems behind deliberate, high-context AI behavior.</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[2rem] bg-[#0b0c10] p-6 shadow-glow shadow-black/30">
+              <div class="absolute inset-0 bg-[linear-gradient(145deg,rgba(236,253,245,0.05),rgba(255,255,255,0.01)_42%,rgba(0,0,0,0.78))]"></div>
+              <div class="absolute inset-0 opacity-70 transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_left,rgba(16,185,129,0.16),transparent_42%)]"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/30 to-transparent"></div>
+              <div class="relative">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-emerald-200/70">02. Research Domain</div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Memory and retrieval infrastructure</h3>
+                <p class="mt-4 text-sm leading-7 text-white/64">
+                  This work explores how systems remember, retrieve, compress, and rank information so intelligence can stay continuous across sessions, tools, and evolving tasks.
+                </p>
+                <div class="mt-6 grid gap-3 text-sm text-white/54">
+                  <div>Focus: context persistence, recall quality, retrieval assembly</div>
+                  <div>Why it matters: better memory makes agent systems feel cumulative rather than stateless.</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[2rem] bg-[#0b0c10] p-6 shadow-glow shadow-black/30">
+              <div class="absolute inset-0 bg-[linear-gradient(145deg,rgba(139,92,246,0.06),rgba(255,255,255,0.01)_42%,rgba(0,0,0,0.78))]"></div>
+              <div class="absolute inset-0 opacity-70 transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_left,rgba(139,92,246,0.18),transparent_42%)]"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-violet-300/30 to-transparent"></div>
+              <div class="relative">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-violet-200/70">03. Research Domain</div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Multimodal interface cognition</h3>
+                <p class="mt-4 text-sm leading-7 text-white/64">
+                  We investigate how models interpret screens, documents, images, and structured environments together so intelligence can operate in the formats real work actually uses.
+                </p>
+                <div class="mt-6 grid gap-3 text-sm text-white/54">
+                  <div>Focus: document reasoning, interface state, vision-language alignment</div>
+                  <div>Why it matters: useful systems must understand more than text prompts alone.</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[2rem] bg-[#0b0c10] p-6 shadow-glow shadow-black/30 md:col-span-2 xl:col-span-1">
+              <div class="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.05),rgba(255,255,255,0.01)_42%,rgba(0,0,0,0.78))]"></div>
+              <div class="absolute inset-0 opacity-70 transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_42%)]"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+              <div class="relative">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-white/55">04. Research Domain</div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Verification and grounded generation</h3>
+                <p class="mt-4 text-sm leading-7 text-white/64">
+                  This domain focuses on how outputs are checked, traced, and grounded so systems remain trustworthy when answers carry operational or reputational weight.
+                </p>
+                <div class="mt-6 grid gap-3 text-sm text-white/54">
+                  <div>Focus: evaluation layers, citation logic, failure review</div>
+                  <div>Why it matters: capability without verification is not enough for dependable deployment.</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[2rem] bg-[#0b0c10] p-6 shadow-glow shadow-black/30">
+              <div class="absolute inset-0 bg-[linear-gradient(145deg,rgba(14,165,233,0.05),rgba(255,255,255,0.01)_42%,rgba(0,0,0,0.78))]"></div>
+              <div class="absolute inset-0 opacity-70 transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.15),transparent_42%)]"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-sky-300/30 to-transparent"></div>
+              <div class="relative">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-sky-200/70">05. Research Domain</div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Tool use and agent orchestration</h3>
+                <p class="mt-4 text-sm leading-7 text-white/64">
+                  We research how intelligent systems plan actions, coordinate tools, and manage execution chains without losing reliability, control, or human oversight.
+                </p>
+                <div class="mt-6 grid gap-3 text-sm text-white/54">
+                  <div>Focus: action planning, tool routing, multi-step execution</div>
+                  <div>Why it matters: orchestration is what turns raw model ability into useful workflow automation.</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="group relative overflow-hidden rounded-[2rem] bg-[#0b0c10] p-6 shadow-glow shadow-black/30">
+              <div class="absolute inset-0 bg-[linear-gradient(145deg,rgba(244,114,182,0.05),rgba(255,255,255,0.01)_42%,rgba(0,0,0,0.78))]"></div>
+              <div class="absolute inset-0 opacity-70 transition duration-300 group-hover:opacity-100 bg-[radial-gradient(circle_at_top_left,rgba(244,114,182,0.16),transparent_42%)]"></div>
+              <div class="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-rose-300/30 to-transparent"></div>
+              <div class="relative">
+                <div class="text-[11px] uppercase tracking-[0.22em] text-rose-200/70">06. Research Domain</div>
+                <h3 class="mt-4 text-2xl font-semibold text-white">Efficient deployment and optimization</h3>
+                <p class="mt-4 text-sm leading-7 text-white/64">
+                  This area studies how to lower latency, reduce cost, and improve runtime efficiency without giving up the quality and reliability expected from frontier systems.
+                </p>
+                <div class="mt-6 grid gap-3 text-sm text-white/54">
+                  <div>Focus: runtime design, compression, inference efficiency</div>
+                  <div>Why it matters: research only compounds when it can be deployed at useful speed and scale.</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team section -->
+      <section id="team" class="relative px-4 py-20 sm:px-6 lg:px-0 lg:py-24">
+        <div class="mx-auto lg:container lg:px-12">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-cyan-200/80">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
+              Core Team
+            </div>
+            <h2 class="mt-6 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[3.2rem]">
+              The people building the lab.
+            </h2>
+            <p class="mt-5 max-w-2xl text-base leading-7 text-white/68 sm:text-lg sm:leading-8">
+              Obsidian Labs brings together model researchers, infrastructure engineers, product builders, and safety specialists to turn raw capability into dependable systems.
+            </p>
+          </div>
+
+          <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-glow shadow-black/30">
+              <div class="flex items-start gap-4">
+                <img src="https://i.pravatar.cc/160?img=56" alt="Portrait of Talha Muammar" class="h-24 w-24 shrink-0 rounded-full border-2 border-violet-300/35 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_28px_rgba(196,181,253,0.12)]" />
+                <div class="min-w-0 pt-1">
+                  <span class="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-white/45">Founder</span>
+                  <h3 class="mt-3 text-lg font-semibold text-white">Talha Muammar</h3>
+                  <p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-violet-200/70">Chief Scientist</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-white/65">Leads the scientific direction of the lab, sets the long-range research agenda, and decides which model capabilities are worth turning into durable products.</p>
+              <div class="mt-4 rounded-2xl border border-violet-300/10 bg-violet-300/[0.04] p-3">
+                <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/35">
+                  <span>Focus</span>
+                  <span class="text-violet-200/70">Foundation Models</span>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Evaluation Design</span>
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Research Direction</span>
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <div class="text-[11px] uppercase tracking-[0.2em] text-white/35">Responsibilities</div>
+                <div class="mt-2 text-sm leading-6 text-white/72">Owns benchmark strategy, research prioritization, and the decision framework that determines when a capability is ready for productization.</div>
+              </div>
+            </article>
+
+            <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-glow shadow-black/30">
+              <div class="flex items-start gap-4">
+                <img src="https://i.pravatar.cc/160?img=12" alt="Portrait of Daniel Kim" class="h-24 w-24 shrink-0 rounded-full border-2 border-emerald-300/35 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_30px_rgba(16,185,129,0.12)]" />
+                <div class="min-w-0 pt-1">
+                  <span class="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-white/45">Systems</span>
+                  <h3 class="mt-3 text-lg font-semibold text-white">Daniel Kim</h3>
+                  <p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-emerald-200/70">Inference Architect</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-white/65">Runs the infrastructure side of intelligence delivery, ensuring the lab’s models can be served efficiently, observed properly, and scaled without instability.</p>
+              <div class="mt-4 rounded-2xl border border-emerald-300/10 bg-emerald-300/[0.04] p-3">
+                <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/35">
+                  <span>Focus</span>
+                  <span class="text-emerald-200/70">Inference Systems</span>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Latency Routing</span>
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Serving Stack</span>
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <div class="text-[11px] uppercase tracking-[0.2em] text-white/35">Responsibilities</div>
+                <div class="mt-2 text-sm leading-6 text-white/72">Owns traffic routing, deployment efficiency, and serving architecture so response quality remains high under production-level demand.</div>
+              </div>
+            </article>
+
+            <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-glow shadow-black/30">
+              <div class="flex items-start gap-4">
+                <img src="https://i.pravatar.cc/160?img=47" alt="Portrait of Leila Morgan" class="h-24 w-24 shrink-0 rounded-full border-2 border-white/20 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_24px_rgba(148,163,184,0.10)]" />
+                <div class="min-w-0 pt-1">
+                  <span class="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-white/45">Memory</span>
+                  <h3 class="mt-3 text-lg font-semibold text-white">Leila Morgan</h3>
+                  <p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-white/60">Context Systems Lead</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-white/65">Designs how the lab’s agents retain useful context across sessions, recover relevant information, and maintain coherence through long workflows.</p>
+              <div class="mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-3">
+                <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/35">
+                  <span>Focus</span>
+                  <span class="text-white/70">Context Memory</span>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Retrieval Logic</span>
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Session State</span>
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <div class="text-[11px] uppercase tracking-[0.2em] text-white/35">Responsibilities</div>
+                <div class="mt-2 text-sm leading-6 text-white/72">Owns long-session memory behavior, retrieval recall quality, and the context stitching logic used across agent-based workflows.</div>
+              </div>
+            </article>
+
+            <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-glow shadow-black/30">
+              <div class="flex items-start gap-4">
+                <img src="https://i.pravatar.cc/160?img=15" alt="Portrait of Ibrahim Shah" class="h-24 w-24 shrink-0 rounded-full border-2 border-violet-300/35 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_28px_rgba(196,181,253,0.12)]" />
+                <div class="min-w-0 pt-1">
+                  <span class="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-white/45">Safety</span>
+                  <h3 class="mt-3 text-lg font-semibold text-white">Ibrahim Shah</h3>
+                  <p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-violet-200/70">Verification Engineer</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-white/65">Protects the lab’s systems against brittle behavior by designing verification pathways, testing edge cases, and enforcing auditable response standards.</p>
+              <div class="mt-4 rounded-2xl border border-violet-300/10 bg-violet-300/[0.04] p-3">
+                <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/35">
+                  <span>Focus</span>
+                  <span class="text-violet-200/70">Model Safety</span>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Failure Analysis</span>
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Verification Layers</span>
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <div class="text-[11px] uppercase tracking-[0.2em] text-white/35">Responsibilities</div>
+                <div class="mt-2 text-sm leading-6 text-white/72">Owns verification workflows, failure review loops, and the auditability standards attached to every external-facing model response.</div>
+              </div>
+            </article>
+
+            <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-glow shadow-black/30">
+              <div class="flex items-start gap-4">
+                <img src="https://i.pravatar.cc/160?img=44" alt="Portrait of Nadia Patel" class="h-24 w-24 shrink-0 rounded-full border-2 border-emerald-300/35 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_30px_rgba(16,185,129,0.12)]" />
+                <div class="min-w-0 pt-1">
+                  <span class="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-white/45">Product</span>
+                  <h3 class="mt-3 text-lg font-semibold text-white">Nadia Patel</h3>
+                  <p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-emerald-200/70">Applied AI Product Lead</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-white/65">Converts technical capability into operational value by shaping how teams actually use the lab’s systems in research, delivery, and deployment contexts.</p>
+              <div class="mt-4 rounded-2xl border border-emerald-300/10 bg-emerald-300/[0.04] p-3">
+                <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/35">
+                  <span>Focus</span>
+                  <span class="text-emerald-200/70">Applied Delivery</span>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Workflow Design</span>
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Partner Enablement</span>
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <div class="text-[11px] uppercase tracking-[0.2em] text-white/35">Responsibilities</div>
+                <div class="mt-2 text-sm leading-6 text-white/72">Owns applied workflow design, rollout planning, and the handoff path from core platform capability to usable product experiences.</div>
+              </div>
+            </article>
+
+            <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-glow shadow-black/30">
+              <div class="flex items-start gap-4">
+                <img src="https://i.pravatar.cc/160?img=22" alt="Portrait of Ethan Okafor" class="h-24 w-24 shrink-0 rounded-full border-2 border-white/20 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_24px_rgba(148,163,184,0.10)]" />
+                <div class="min-w-0 pt-1">
+                  <span class="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-white/45">Vision</span>
+                  <h3 class="mt-3 text-lg font-semibold text-white">Ethan Okafor</h3>
+                  <p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-white/60">Multimodal Specialist</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-white/65">Develops the multimodal behavior layer that lets the lab interpret documents, visuals, and mixed inputs as one coherent reasoning surface.</p>
+              <div class="mt-4 rounded-2xl border border-white/10 bg-white/[0.03] p-3">
+                <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/35">
+                  <span>Focus</span>
+                  <span class="text-white/70">Multimodal Systems</span>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Vision Models</span>
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Mixed Inputs</span>
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <div class="text-[11px] uppercase tracking-[0.2em] text-white/35">Responsibilities</div>
+                <div class="mt-2 text-sm leading-6 text-white/72">Owns vision-language alignment, mixed-input usability, and the multimodal interaction layer across documents, screens, and imagery.</div>
+              </div>
+            </article>
+
+            <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-glow shadow-black/30">
+              <div class="flex items-start gap-4">
+                <img src="https://i.pravatar.cc/160?img=5" alt="Portrait of Sofia Yoon" class="h-24 w-24 shrink-0 rounded-full border-2 border-violet-300/35 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_28px_rgba(196,181,253,0.12)]" />
+                <div class="min-w-0 pt-1">
+                  <span class="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-white/45">Data</span>
+                  <h3 class="mt-3 text-lg font-semibold text-white">Sofia Yoon</h3>
+                  <p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-violet-200/70">Dataset Curator</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-white/65">Builds the data foundation behind model quality, improving how training, evaluation, and multilingual coverage are shaped before systems are deployed.</p>
+              <div class="mt-4 rounded-2xl border border-violet-300/10 bg-violet-300/[0.04] p-3">
+                <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/35">
+                  <span>Focus</span>
+                  <span class="text-violet-200/70">Dataset Quality</span>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Multilingual Sets</span>
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Quality Filters</span>
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <div class="text-[11px] uppercase tracking-[0.2em] text-white/35">Responsibilities</div>
+                <div class="mt-2 text-sm leading-6 text-white/72">Owns dataset curation standards, multilingual coverage quality, and the filtering rules that improve reliability before training begins.</div>
+              </div>
+            </article>
+
+            <article class="glass rounded-[1.6rem] border border-white/10 bg-white/[0.035] p-4 shadow-glow shadow-black/30">
+              <div class="flex items-start gap-4">
+                <img src="https://i.pravatar.cc/160?img=68" alt="Portrait of Jonah Tran" class="h-24 w-24 shrink-0 rounded-full border-2 border-emerald-300/35 p-1 object-cover shadow-[0_0_0_1px_rgba(255,255,255,0.08),0_0_30px_rgba(16,185,129,0.12)]" />
+                <div class="min-w-0 pt-1">
+                  <span class="inline-flex rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.22em] text-white/45">Platform</span>
+                  <h3 class="mt-3 text-lg font-semibold text-white">Jonah Tran</h3>
+                  <p class="mt-1 text-[11px] uppercase tracking-[0.22em] text-emerald-200/70">Developer Platform Engineer</p>
+                </div>
+              </div>
+              <p class="mt-4 text-sm leading-6 text-white/65">Builds the internal developer layer that helps research and product teams integrate, test, observe, and ship the lab’s systems faster.</p>
+              <div class="mt-4 rounded-2xl border border-emerald-300/10 bg-emerald-300/[0.04] p-3">
+                <div class="flex items-center justify-between text-[11px] uppercase tracking-[0.2em] text-white/35">
+                  <span>Focus</span>
+                  <span class="text-emerald-200/70">Developer Platform</span>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Internal APIs</span>
+                  <span class="rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs text-white/72">Observability</span>
+                </div>
+              </div>
+              <div class="mt-3 rounded-2xl border border-white/10 bg-black/20 p-3">
+                <div class="text-[11px] uppercase tracking-[0.2em] text-white/35">Responsibilities</div>
+                <div class="mt-2 text-sm leading-6 text-white/72">Owns developer tooling, internal APIs, and telemetry surfaces that help every other team build, test, and ship faster.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- News and insights section -->
+      <section id="news" class="relative px-4 py-20 sm:px-6 lg:px-0 lg:py-24">
+        <div class="mx-auto lg:container lg:px-12">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-emerald-200/80">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
+              News &amp; Insights
+            </div>
+            <h2 class="mt-6 max-w-2xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[3.15rem]">
+              Updates from the lab and the systems we are actively shaping.
+            </h2>
+            <p class="mt-5 max-w-2xl text-base leading-7 text-white/68 sm:text-lg sm:leading-8">
+              This is where we share what the team is learning, shipping, refining, and investigating across research, product, and infrastructure work.
+            </p>
+          </div>
+
+          <div class="mt-12 space-y-5">
+            <article class="group relative overflow-hidden rounded-[2.2rem] bg-[#0a0b0f] shadow-glow shadow-black/30">
+              <div class="absolute inset-0 bg-[linear-gradient(120deg,rgba(16,185,129,0.12),rgba(255,255,255,0.02)_34%,rgba(0,0,0,0.88))]"></div>
+              <div class="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-emerald-300 via-emerald-400/60 to-transparent"></div>
+              <div class="relative grid gap-8 p-7 lg:grid-cols-[1.15fr_0.85fr] lg:p-8">
+                <div>
+                  <div class="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-white/45">
+                    <span class="rounded-full border border-emerald-300/15 bg-emerald-300/10 px-3 py-1 text-emerald-100/80">Main Highlight</span>
+                    <span>March 2026</span>
+                    <span>Deployment Cycle</span>
+                  </div>
+                  <h3 class="mt-5 max-w-2xl text-3xl font-semibold tracking-[-0.03em] text-white sm:text-[2.2rem]">
+                    We are tightening the process between reasoning research, evaluation, and deployed product behavior.
+                  </h3>
+                  <p class="mt-5 max-w-2xl text-base leading-7 text-white/66">
+                    The current cycle is centered on controllable reasoning in live product flows, stronger memory continuity across sessions, and more visible verification before external output. The lab is now treating these as one operating surface instead of separate workstreams.
+                  </p>
+                </div>
+
+                <div class="grid gap-3 self-start">
+                  <div class="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
+                    <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">Current Focus</div>
+                    <div class="mt-3 text-sm leading-6 text-white/80">Reasoning control in live product workflows.</div>
+                  </div>
+                  <div class="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
+                    <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">What Changed</div>
+                    <div class="mt-3 text-sm leading-6 text-white/80">Evaluation now measures model behavior across research, product, and deployment together.</div>
+                  </div>
+                  <div class="rounded-[1.4rem] border border-white/10 bg-white/[0.03] p-4">
+                    <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">What Is Next</div>
+                    <div class="mt-3 text-sm leading-6 text-white/80">Benchmarks, rollout notes, and deployment learnings will be published here as the cycle matures.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="relative flex justify-end border-t border-white/10 px-7 py-4 lg:px-8">
+                <a href="#" class="inline-flex items-center justify-center rounded-full border border-emerald-300/20 bg-emerald-300/10 px-4 py-2 text-sm text-white transition hover:bg-emerald-300/18">Read Details</a>
+              </div>
+            </article>
+
+            <div class="grid gap-5 lg:grid-cols-3">
+              <article class="group relative overflow-hidden rounded-[1.9rem] bg-[#0a0b0f] shadow-glow shadow-black/30">
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(56,189,248,0.08),rgba(0,0,0,0.88))]"></div>
+                <div class="absolute inset-x-0 top-0 h-1 bg-sky-300/80"></div>
+                <div class="relative p-6">
+                  <div class="text-[11px] uppercase tracking-[0.2em] text-sky-200/70">Insight Highlight</div>
+                  <h3 class="mt-4 text-xl font-semibold text-white">Why we share operational learnings, not just milestones.</h3>
+                  <p class="mt-4 text-sm leading-6 text-white/64">
+                    The most valuable updates often come from changed evaluation logic, failure analysis, and the product decisions those lessons forced us to make.
+                  </p>
+                  <div class="mt-6 flex justify-end">
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-sky-300/20 bg-sky-300/10 px-4 py-2 text-sm text-white transition hover:bg-sky-300/18">Read Details</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="group relative overflow-hidden rounded-[1.9rem] bg-[#0a0b0f] shadow-glow shadow-black/30">
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(139,92,246,0.08),rgba(0,0,0,0.88))]"></div>
+                <div class="absolute inset-x-0 top-0 h-1 bg-violet-300/80"></div>
+                <div class="relative p-6">
+                  <div class="text-[11px] uppercase tracking-[0.2em] text-violet-200/70">Work Log Highlight</div>
+                  <h3 class="mt-4 text-xl font-semibold text-white">Memory continuity experiments are moving into product review.</h3>
+                  <p class="mt-4 text-sm leading-6 text-white/64">
+                    Recent iterations focused on context compression, retrieval stability, and what long-session memory looks like when real tasks extend over time.
+                  </p>
+                  <div class="mt-6 flex justify-end">
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-violet-300/20 bg-violet-300/10 px-4 py-2 text-sm text-white transition hover:bg-violet-300/18">Read Details</a>
+                  </div>
+                </div>
+              </article>
+
+              <article class="group relative overflow-hidden rounded-[1.9rem] bg-[#0a0b0f] shadow-glow shadow-black/30">
+                <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(244,114,182,0.08),rgba(0,0,0,0.88))]"></div>
+                <div class="absolute inset-x-0 top-0 h-1 bg-rose-300/80"></div>
+                <div class="relative p-6">
+                  <div class="text-[11px] uppercase tracking-[0.2em] text-rose-200/70">Upcoming Highlight</div>
+                  <h3 class="mt-4 text-xl font-semibold text-white">Benchmarks, deployment notes, and internal essays will live here.</h3>
+                  <p class="mt-4 text-sm leading-6 text-white/64">
+                    This section is intended as a highlights layer for the main posts that document what the lab is building, testing, and learning next.
+                  </p>
+                  <div class="mt-6 flex justify-end">
+                    <a href="#" class="inline-flex items-center justify-center rounded-full border border-rose-300/20 bg-rose-300/10 px-4 py-2 text-sm text-white transition hover:bg-rose-300/18">Read Details</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact section -->
+      <section id="contact" class="relative px-4 py-20 sm:px-6 lg:px-0 lg:py-24">
+        <div class="mx-auto lg:container lg:px-12">
+          <div class="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
+            <div class="relative overflow-hidden rounded-[2.2rem] bg-[#0a0b0f] p-7 shadow-glow shadow-black/30 lg:p-8">
+              <div class="absolute inset-0 bg-[linear-gradient(140deg,rgba(16,185,129,0.08),rgba(255,255,255,0.02)_42%,rgba(0,0,0,0.84))]"></div>
+              <div class="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-emerald-300/35 to-transparent"></div>
+              <div class="relative">
+                <div class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.28em] text-emerald-200/80">
+                  <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-300"></span>
+                  Contact
+                </div>
+                <h2 class="mt-6 max-w-2xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl lg:text-[3.1rem]">
+                  Build with the lab, collaborate on research, or reach out directly.
+                </h2>
+                <p class="mt-5 max-w-2xl text-base leading-7 text-white/66 sm:text-lg sm:leading-8">
+                  This is the main channel for applying to join the lab, sharing your background, or starting a conversation about research and product collaboration.
+                </p>
+
+                <div class="mt-8 grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
+                    <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">Apply</div>
+                    <div class="mt-3 text-lg font-medium text-white">Open applications</div>
+                    <div class="mt-2 text-sm leading-6 text-white/58">Use the form to introduce yourself, your area of work, and why you want to be part of the lab.</div>
+                  </div>
+                  <div class="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-5">
+                    <div class="text-[11px] uppercase tracking-[0.18em] text-white/35">Contact</div>
+                    <div class="mt-3 text-lg font-medium text-white">hello@obsidianlabs.ai</div>
+                    <div class="mt-2 text-sm leading-6 text-white/58">For direct introductions, research notes, and thoughtful collaboration inquiries.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form class="relative overflow-hidden rounded-[2.2rem] bg-[#0a0b0f] p-7 shadow-glow shadow-black/30 lg:p-8">
+              <div class="absolute inset-0 bg-[linear-gradient(140deg,rgba(139,92,246,0.08),rgba(255,255,255,0.02)_40%,rgba(0,0,0,0.86))]"></div>
+              <div class="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-violet-300/30 to-transparent"></div>
+              <div class="relative">
+                <div class="flex items-center justify-between gap-4">
+                  <div>
+                    <div class="text-[11px] uppercase tracking-[0.2em] text-violet-200/70">Join Us</div>
+                    <h3 class="mt-3 text-2xl font-semibold text-white">Send your application or message</h3>
+                  </div>
+                  <div class="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-white/45">Applications Open</div>
+                </div>
+
+                <div class="mt-7 grid gap-4 sm:grid-cols-2">
+                  <label class="block">
+                    <span class="mb-2 block text-[11px] uppercase tracking-[0.18em] text-white/40">Name</span>
+                    <input type="text" placeholder="Your full name" class="w-full rounded-[1.2rem] border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/28 outline-none transition focus:border-violet-300/35 focus:bg-white/[0.06]" />
+                  </label>
+                  <label class="block">
+                    <span class="mb-2 block text-[11px] uppercase tracking-[0.18em] text-white/40">Email</span>
+                    <input type="email" placeholder="you@example.com" class="w-full rounded-[1.2rem] border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/28 outline-none transition focus:border-violet-300/35 focus:bg-white/[0.06]" />
+                  </label>
+                </div>
+
+                <div class="mt-4 grid gap-4 sm:grid-cols-2">
+                  <label class="block">
+                    <span class="mb-2 block text-[11px] uppercase tracking-[0.18em] text-white/40">Area</span>
+                    <input type="text" placeholder="Research, product, engineering..." class="w-full rounded-[1.2rem] border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/28 outline-none transition focus:border-violet-300/35 focus:bg-white/[0.06]" />
+                  </label>
+                  <label class="block">
+                    <span class="mb-2 block text-[11px] uppercase tracking-[0.18em] text-white/40">Portfolio or Link</span>
+                    <input type="url" placeholder="Website, GitHub, LinkedIn..." class="w-full rounded-[1.2rem] border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white placeholder:text-white/28 outline-none transition focus:border-violet-300/35 focus:bg-white/[0.06]" />
+                  </label>
+                </div>
+
+                <label class="mt-4 block">
+                  <span class="mb-2 block text-[11px] uppercase tracking-[0.18em] text-white/40">Message</span>
+                  <textarea rows="7" placeholder="Tell us who you are, what you work on, and why you want to join or collaborate with the lab." class="w-full rounded-[1.4rem] border border-white/10 bg-white/[0.04] px-4 py-3 text-sm leading-6 text-white placeholder:text-white/28 outline-none transition focus:border-violet-300/35 focus:bg-white/[0.06]"></textarea>
+                </label>
+
+                <div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+                  <p class="max-w-sm text-sm leading-6 text-white/48">Best for applications, research introductions, and long-form notes about work you want to do with the lab.</p>
+                  <button type="submit" class="inline-flex items-center justify-center rounded-full border border-violet-300/20 bg-violet-300/10 px-4 py-2.5 text-sm text-white transition hover:bg-violet-300/18">Send Application</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="relative px-4 pb-10 sm:px-6 lg:px-0">
+        <div class="mx-auto lg:container lg:px-12">
+          <div class="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#0a0b0f] px-6 py-6 shadow-glow shadow-black/20 lg:px-8">
+            <div class="absolute inset-0 bg-[linear-gradient(140deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01)_36%,rgba(0,0,0,0.86))]"></div>
+            <div class="absolute inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-white/25 to-transparent"></div>
+            <div class="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <div class="font-medium uppercase tracking-[0.22em] text-white/72">Obsidian Labs</div>
+                <div class="mt-4 text-xs uppercase tracking-[0.18em] text-white/32">Copyright © 2026 Obsidian Labs. All rights reserved.</div>
+              </div>
+
+              <div class="flex flex-col gap-3 text-sm text-white/58 lg:items-end">
+                <div class="flex flex-wrap gap-x-5 gap-y-2">
+                  <a href="#top" class="transition hover:text-white">Back to top</a>
+                  <a href="#projects" class="transition hover:text-white">Projects</a>
+                  <a href="#research" class="transition hover:text-white">Research</a>
+                  <a href="#news" class="transition hover:text-white">News</a>
+                </div>
+                <div class="flex flex-wrap gap-x-5 gap-y-2">
+                  <a href="#" class="transition hover:text-white">GitHub</a>
+                  <a href="#" class="transition hover:text-white">LinkedIn</a>
+                  <a href="mailto:hello@obsidianlabs.ai" class="transition hover:text-white">hello@obsidianlabs.ai</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      function isReloadNavigation() {
+        const navEntries = performance.getEntriesByType('navigation');
+        if (navEntries.length > 0) {
+          return navEntries[0].type === 'reload';
+        }
+
+        return performance.navigation?.type === 1;
+      }
+
+      window.addEventListener('load', () => {
+        if (!isReloadNavigation()) return;
+
+        requestAnimationFrame(() => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+          });
+        });
+      });
+
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuToggle?.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      const canvas = document.getElementById('networkCanvas');
+      const ctx = canvas.getContext('2d');
+      let points = [];
+      let pulse = 0;
+      let animationId;
+
+      function resizeCanvas() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        createPoints(rect.width, rect.height);
+      }
+
+      function createPoints(w, h) {
+        const cols = w < 640 ? 5 : 7;
+        const rows = w < 640 ? 6 : 7;
+        const gapX = w / (cols + 1);
+        const gapY = h / (rows + 1);
+        points = [];
+
+        for (let y = 1; y <= rows; y++) {
+          for (let x = 1; x <= cols; x++) {
+            const jitterX = (Math.random() - 0.5) * 28;
+            const jitterY = (Math.random() - 0.5) * 28;
+            points.push({
+              x: x * gapX + jitterX,
+              y: y * gapY + jitterY,
+              baseX: x * gapX + jitterX,
+              baseY: y * gapY + jitterY,
+              radius: Math.random() * 1.7 + 1.4,
+              speed: Math.random() * 0.012 + 0.004,
+              offset: Math.random() * Math.PI * 2,
+            });
+          }
+        }
+      }
+
+      function drawBackground(w, h) {
+        const grad = ctx.createLinearGradient(0, 0, w, h);
+        grad.addColorStop(0, 'rgba(3, 8, 12, 1)');
+        grad.addColorStop(1, 'rgba(8, 18, 22, 1)');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.strokeStyle = 'rgba(255,255,255,0.035)';
+        ctx.lineWidth = 1;
+        for (let x = 0; x < w; x += 44) {
+          ctx.beginPath();
+          ctx.moveTo(x, 0);
+          ctx.lineTo(x, h);
+          ctx.stroke();
+        }
+        for (let y = 0; y < h; y += 44) {
+          ctx.beginPath();
+          ctx.moveTo(0, y);
+          ctx.lineTo(w, y);
+          ctx.stroke();
+        }
+      }
+
+      function draw() {
+        const w = canvas.getBoundingClientRect().width;
+        const h = canvas.getBoundingClientRect().height;
+        pulse += 0.01;
+        drawBackground(w, h);
+
+        for (const p of points) {
+          p.x = p.baseX + Math.cos(pulse + p.offset) * 7;
+          p.y = p.baseY + Math.sin(pulse * 1.2 + p.offset) * 7;
+        }
+
+        for (let i = 0; i < points.length; i++) {
+          for (let j = i + 1; j < points.length; j++) {
+            const a = points[i];
+            const b = points[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 120) {
+              const alpha = 1 - dist / 120;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = `rgba(120, 220, 235, ${alpha * 0.16})`;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        for (const p of points) {
+          const glow = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 14);
+          glow.addColorStop(0, 'rgba(103, 232, 249, 0.35)');
+          glow.addColorStop(0.45, 'rgba(16, 185, 129, 0.12)');
+          glow.addColorStop(1, 'rgba(16, 185, 129, 0)');
+          ctx.fillStyle = glow;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 14, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius + Math.sin(pulse * 2 + p.offset) * 0.5, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(203, 250, 255, 0.92)';
+          ctx.fill();
+        }
+
+        const sweepX = ((Math.sin(pulse * 0.5) + 1) / 2) * w;
+        const sweep = ctx.createLinearGradient(sweepX - 180, 0, sweepX + 180, h);
+        sweep.addColorStop(0, 'rgba(34, 211, 238, 0)');
+        sweep.addColorStop(0.5, 'rgba(34, 211, 238, 0.045)');
+        sweep.addColorStop(1, 'rgba(16, 185, 129, 0)');
+        ctx.fillStyle = sweep;
+        ctx.fillRect(0, 0, w, h);
+
+        animationId = requestAnimationFrame(draw);
+      }
+
+      const observer = new ResizeObserver(() => resizeCanvas());
+      observer.observe(canvas);
+      resizeCanvas();
+      draw();
+
+      window.addEventListener('beforeunload', () => cancelAnimationFrame(animationId));
+    </script>
+  </body>
+</html>
